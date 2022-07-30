@@ -1,0 +1,188 @@
+
+/* Default Overrides */
+
+html {
+    font-family: 'Cairo', sans-serif;
+    color: white;
+    font-size: min(1.8vw, 2vh);
+    line-height: 1.2em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Page */
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #0d1117;
+}
+
+main {
+    width: min(90vw, 100vh);
+    display: flex;
+    flex-direction: column;
+}
+
+main > * {
+    margin-top: 2em;
+}
+
+.title {
+    margin-top: 1.5em;
+    font-size: 2em;
+    text-align: center;
+}
+
+.subtitle {
+    margin-top: 1em;
+    text-align: center;
+}
+
+/* Project Card */
+
+.project_card {
+    width: min(90vw, 100vh);
+    height: calc( min(90vw, 100vh) * 0.2 );
+    overflow: hidden;
+    border-radius: 1em;
+    border: 1px solid #30363d;
+    text-align: center;
+    display: flex;
+    background-color: #0d1117;
+}
+.project_card:hover {
+    background-color: #161b22;
+}
+
+.favourite_wrapper {
+    padding: 1px;
+    border-radius: 1em;
+
+    background: linear-gradient(-45deg, #30363d 42%, lightgrey 50%, #30363d 58%);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+}
+@keyframes gradient {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 50% 50%; }
+	100% { background-position: 100% 50%; }
+}
+.favourite_wrapper > .project_card {
+    border: none;
+    width: calc( min(90vw, 100vh) - 2px );
+    height: calc( min(90vw, 100vh) * 0.2 - 2px );
+}
+
+@keyframes AnimationName {
+    0%{background-position:42% 0%}
+    50%{background-position:59% 100%}
+    100%{background-position:42% 0%}
+}
+
+/* Project Card Image */
+
+.project_card > img {
+    width: calc( 50% + 1px );
+    height: 100%;
+}
+
+/* Project Card Info */
+
+.info {
+    width: 43%;
+    height: 100%;
+}
+
+.info > * {
+    margin-top: 0.5em;
+}
+
+.project_title {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.tag_box {
+    display: flex;
+    justify-content: center;
+}
+
+.tag {
+    font-size: 0.8em;
+    margin: 0 0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.25em;
+    cursor: default;
+}
+.tag_cpp    { background-color: #0179c3; }
+.tag_opengl { background-color: rgb(123, 199, 0); }
+.tag_cuda   { background-color: green; }
+.tag_java   { background-color: #f89917; }
+.tag_web    { background-color: firebrick; }
+.tag_heroku { background-color: blueviolet; }
+.tag_unreal { background-color: grey; }
+.tag_d3     { background-color: saddlebrown; }
+.tag_python { background-color: rgb(199, 168, 54); }
+.tag_ml     { background-color: darkred; }
+.tag_maya   { background-color: #06a4a5; }
+
+.description {
+    margin-top: 0.75em;
+    padding: 0 1em;
+    font-style: italic;
+    color: #c9d1d9;
+}
+
+/* Project Card Links */
+
+.link_box {
+    width: 7%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.link {
+    margin: 0.3em 0;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+}
+.link:hover {
+    filter: brightness(0.6);
+}
+@media (max-width: 700px), (max-height: 700px) {
+    .link {
+        width: 24px;
+        height: 24px;
+    }
+}
+@media (max-width: 500px), (max-height: 500px) {
+    .link {
+        width: 16px;
+        height: 16px;
+    }
+}
+.repo_link { background-image: url("icons/github.png"); }
+.dist_link { background-image: url("icons/tag.png"); }
+.demo_link { background-image: url("icons/play.png"); }
+
+/* Footer */
+
+.footer {
+    margin: 1em 0;
+    text-align: center;
+    font-size: 0.75em;
+}
