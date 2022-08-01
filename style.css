@@ -1,4 +1,12 @@
 
+/* Colour Scheme Variables */
+
+:root {
+    --background: #0d1117;
+    --background_light: #161b22;
+    --border: #404852;
+}
+
 /* Default Overrides */
 
 html {
@@ -22,13 +30,39 @@ a {
     color: inherit;
 }
 
+/* General Purpose */
+
+.link > .tooltip {
+    visibility: hidden;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    color: white;
+    position: absolute;
+    top: 0px;
+    width: 8rem;
+    overflow: hidden;
+    box-shadow: 0 0 0.5rem black;
+}
+.tooltip.right {
+    right: 120%;
+}
+.tooltip.left {
+    left: 120%;
+}
+.link:hover > .tooltip {
+    visibility: visible;
+}
+
 /* Page */
 
 body {
     margin: 0 0 1rem 0;
     display: flex;
     justify-content: center;
-    background-color: #0d1117;
+    background-color: var(--background);
 }
 
 main {
@@ -57,47 +91,58 @@ main > * {
 .project_card {
     width: min(90vw, 100vh);
     height: calc( min(90vw, 100vh) * 0.2 );
-    overflow: hidden;
     border-radius: 1em;
-    border: 1px solid #30363d;
+    border: 1px solid var(--border);
     text-align: center;
     display: flex;
-    background-color: #0d1117;
+    background-color: var(--background);
+    overflow: hidden;
+    z-index: 10;
+    box-shadow: 0 0 0.5rem black;
 }
 .project_card:hover {
-    background-color: #161b22;
+    background-color: var(--background_light);
 }
 
-.favourite_wrapper {
-    padding: 1px;
-    border-radius: calc( 1em + 1px );
+/* Favourite Highlight */
 
-    background: linear-gradient(-45deg, #30363d 42%, lightgrey 50%, #30363d 58%);
+.favourite_wrapper {
+    display: flex;
+    padding: 2px;
+    border-radius: calc( 1em + 2px );
+
+    background: linear-gradient(-45deg, var(--border) 42%, white 50%, var(--border) 58%);
 	background-size: 400% 400%;
 	animation: gradient 5s ease infinite;
+}
+.favourite_wrapper > .project_card {
+    border: none;
+    width: calc( min(90vw, 100vh) - 4px );
+    height: calc( min(90vw, 100vh) * 0.2 - 4px );
 }
 @keyframes gradient {
 	0% { background-position: 0% 50%; }
 	50% { background-position: 50% 50%; }
 	100% { background-position: 100% 50%; }
 }
-.favourite_wrapper > .project_card {
-    border: none;
-    width: calc( min(90vw, 100vh) - 2px );
-    height: calc( min(90vw, 100vh) * 0.2 - 2px );
-}
-
-@keyframes AnimationName {
-    0%{background-position:42% 0%}
-    50%{background-position:59% 100%}
-    100%{background-position:42% 0%}
-}
 
 /* Project Card Image */
 
-.project_card > img {
+.project_card > img, .project_card > .fade {
     width: calc( 50% + 1px );
     height: 100%;
+}
+
+.fade {
+    position: relative;
+}
+.fade.left  { box-shadow: inset -1rem 0 1rem -1rem black; }
+.fade.right { box-shadow: inset  1rem 0 1rem -1rem black; }
+
+.fade > img {
+    display: block;
+    position: relative;
+    z-index: -1;
 }
 
 /* Project Card Info */
@@ -165,7 +210,7 @@ main > * {
     background-size: cover;
 }
 .link:hover {
-    filter: brightness(0.6);
+    filter: brightness(1);
 }
 @media (max-width: 700px), (max-height: 700px) {
     .link {
