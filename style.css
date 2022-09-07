@@ -70,22 +70,65 @@ main {
     width: min(90vw, 100vh);
     display: flex;
     flex-direction: column;
+    padding-top: 1em;
 }
 
 main > * {
     margin-top: 2em;
 }
 
+/* Hero */
+
+.hero {
+    display: flex;
+    justify-content: center;
+}
+
+.title_bar {
+    width: 50%;
+}
+
 .title {
-    margin-top: 1.5em;
+    width: 100%;
     font-size: 2em;
     text-align: center;
 }
 
 .subtitle {
+    width: 100%;
     margin-top: 1em;
     text-align: center;
 }
+
+.social_bar {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.social {
+    margin: 0 4%;
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+}
+.social:hover {
+    filter: brightness(1);
+}
+@media (max-width: 700px), (max-height: 700px) {
+    .social {
+        width: 36px;
+        height: 36px;
+    }
+}
+@media (max-width: 500px), (max-height: 500px) {
+    .social {
+        width: 24px;
+        height: 24px;
+    }
+}
+.social.github   { background-image: url("icons/github.png"); }
+.social.linkedin { background-image: url("icons/linkedin.png"); }
+.social.email { background-image: url("icons/gmail.png"); }
 
 /* Project Card */
 
