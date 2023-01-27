@@ -220,6 +220,7 @@ main > * {
 .tag_cpp    { background-color: #0179c3; }
 .tag_opengl { background-color: rgb(123, 199, 0); }
 .tag_cuda   { background-color: green; }
+.tag_rt     { background-color: rgb(255, 57, 90); }
 .tag_java   { background-color: #f89917; }
 .tag_web    { background-color: firebrick; }
 .tag_heroku { background-color: blueviolet; }
